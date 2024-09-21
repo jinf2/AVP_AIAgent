@@ -7,7 +7,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from langchain_community.llms import Ollama
 
-ssm = boto3.client('ssm')
+ssm = boto3.client('ssm',region_name='us-east-2')
 parameter = ssm.get_parameter(Name='/openai/api_key', WithDecryption=True)
 
 openai.api_key=parameter['Parameter']['Value']
