@@ -1,8 +1,9 @@
 import feedparser
 import boto3
-import openai
+from openai import OpenAI
 import requests
 import re
+import os
 from datetime import datetime
 from bs4 import BeautifulSoup
 from langchain_community.llms import Ollama
@@ -10,17 +11,21 @@ from langchain_community.llms import Ollama
 ssm = boto3.client('ssm',region_name='us-east-2')
 parameter = ssm.get_parameter(Name='/openai/api_key', WithDecryption=True)
 
-openai.api_key=parameter['Parameter']['Value']
+# openai.api_key=parameter['Parameter']['Value']
+
+client = OpenAI(
+    api_key=parameter['Parameter']['Value']
+)
 
 def extract_GPT_3(article_content):
     prompt = f"Please reply this massage in one sentence:{article_content} "
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "system", "content": "Talking with GPT"},
                   {"role": "user", "content": prompt}],
         max_tokens=100
     )
-    return response.choices[0].message['content'].strip()
+    return response.choices[0].message.content
 
 def trylink(text):
     return extract_GPT_3(text)

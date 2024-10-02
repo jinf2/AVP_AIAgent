@@ -1,0 +1,52 @@
+{
+    "conversations": [
+        {
+            "role": "user",
+            "content": "hi"
+        },
+        {
+            "role": "AI",
+            "content": "hello"
+        },
+        {
+            "role": "user",
+            "content": "What is the Lumbar Puncture Patient age"
+        },
+        {
+            "role": "AI",
+            "content": "The age range for patients undergoing a Lumbar Puncture procedure is between 30 and 80 years old, with 30 being the youngest age and 80 being the oldest age."
+        },
+        {
+            "role": "user",
+            "content": "hi! what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "what is the question I perivous ask you ?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the previous conversation stored in the talk_record, the question you asked me before was: \"What is the Lumbar Puncture Patient age?\""
+        },
+        {
+            "role": "user",
+            "content": "What is apple inc?"
+        },
+        {
+            "role": "AI",
+            "content": "I'm here to help answer your health-related questions. If you have any concerns or queries about medical procedures, conditions, treatments, or anything else related to health, please feel free to ask."
+        },
+        {
+            "role": "user",
+            "content": "What is lumbar puncture?"
+        },
+        {
+            "role": "AI",
+            "content": "A lumbar puncture, also known as a spinal tap, is a medical procedure where a thin needle is inserted between the bones in the lower back to remove a sample of cerebrospinal fluid (CSF) for testing. This procedure is often done to diagnose various conditions affecting the brain and spinal cord, such as infections, bleeding, multiple sclerosis, and certain types of cancer. It can also be used to measure the pressure of the CSF. If you have any more questions or need"
+        }
+    ]
+}
