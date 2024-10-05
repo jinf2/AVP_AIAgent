@@ -1,9 +1,8 @@
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,send_from_directory
 
 app = Flask(__name__)
 app.json.sort_keys = False
 
-#news_monitor_API_start
 @app.route('/')
 def get_items():
     return "Let's try connect!"
@@ -23,11 +22,27 @@ def search():
     import Autogen_try
     if request.method == 'POST':
         data=request.get_json(force=True) 
-        print(data['words'])
+        print("question:"+data['words'])
         new = Autogen_try.background()
         question = data['words']
         answer = new.do_conv(question)
-    return answer
+        print("answer:"+answer)
+        return jsonify({
+            "answer": answer,
+            "audio_url": "output.mp3"
+        })
+
+@app.route('/audio', methods=['POST'])
+def get_audio():
+    if request.method == 'POST':
+        data=request.get_json(force=True) 
+        AUDIO_FOLDER = '/home/ec2-user/AVP/AVP_AIAgent/src/'
+    return send_from_directory(AUDIO_FOLDER, data['audio_url'], mimetype='audio/mpeg')
+
+# @app.route('/audio/<filename>', methods=['GET'])
+# def get_audio(filename):
+#     AUDIO_FOLDER = '/home/ec2-user/AVP/AVP_AIAgent/src/'
+#     return send_from_directory(AUDIO_FOLDER, filename, mimetype='audio/mpeg')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
