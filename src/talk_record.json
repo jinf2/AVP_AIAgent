@@ -10,11 +10,51 @@
         },
         {
             "role": "user",
-            "content": "What is the Lumbar Puncture Patient age"
+            "content": "Hi"
         },
         {
             "role": "AI",
-            "content": "Based on the information stored in the talk_record and medical_info, the age range for patients undergoing a Lumbar Puncture procedure is between 30 and 80 years old. The youngest age for patients undergoing a Lumbar Puncture is 30 years old, and the oldest age is 80 years old. If you have any more questions or need further clarification, feel free to ask!"
+            "content": "Hello! How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "Hi"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "Hi"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "Test"
+        },
+        {
+            "role": "AI",
+            "content": "It seems like you didn't ask any specific question. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "Test 1"
+        },
+        {
+            "role": "AI",
+            "content": "It looks like you didn't ask a specific question. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "Test 2"
+        },
+        {
+            "role": "AI",
+            "content": "It seems like you haven't asked a specific question. How can I assist you today? If you have any medical queries or need assistance, feel free to ask!"
         },
         {
             "role": "user",
@@ -26,27 +66,19 @@
         },
         {
             "role": "user",
-            "content": "what is your name?"
+            "content": "Hi"
         },
         {
             "role": "AI",
-            "content": "Hello! My name is Assistant. How can I assist you today?"
+            "content": "Hello! How can I assist you today?"
         },
         {
             "role": "user",
-            "content": "What is lumbar puncture?"
+            "content": "Hi"
         },
         {
             "role": "AI",
-            "content": "A Lumbar Puncture, also known as a spinal tap, is a medical procedure where a needle is inserted into the lower part of the spinal canal to collect cerebrospinal fluid (CSF) for diagnostic testing. This procedure is often performed to help diagnose conditions affecting the brain, spinal cord, or surrounding tissues. By analyzing the CSF obtained during a Lumbar Puncture, healthcare providers can look for signs of infection, bleeding, inflammation, or other abnormalities that may be causing symptoms in"
-        },
-        {
-            "role": "user",
-            "content": "what is your name?"
-        },
-        {
-            "role": "AI",
-            "content": "Hello! My name is Assistant. How can I assist you with today?"
+            "content": "Hello! How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
         }
     ]
 }

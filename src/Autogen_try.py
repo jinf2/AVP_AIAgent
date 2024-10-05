@@ -3,6 +3,7 @@ from  openai import OpenAI
 # from autogen import Agent
 import json
 import os
+import pinecone
 
 #get openai key
 ssm = boto3.client('ssm',region_name='us-east-2')
@@ -13,14 +14,16 @@ class background():
     def __init__(self):
         with open('medical_info.json', 'r', encoding='utf-8') as json_file:
             med_data = json.load(json_file)
-        self.medical_info = json.dumps(med_data)
+        self.medical_info = med_data
+        # self.medical_info = json.dumps(med_data)
 
         if os.path.exists('talk_record.json') and os.path.getsize('talk_record.json') > 0:
             with open('talk_record.json', 'r', encoding='utf-8') as json_file:
                 talk_data = json.load(json_file)
         else:
             talk_data = {"conversations": []} 
-        self.talk_record = json.dumps(talk_data)
+        self.talk_record = talk_data
+        # self.talk_record = json.dumps(talk_data)
         
         self.client = OpenAI(api_key=parameter['Parameter']['Value'])
         self.history = []
@@ -28,7 +31,7 @@ class background():
         # df['ada_embedding'] = df.combined.apply(lambda x: self.get_embedding(x, model='text-embedding-3-small'))
         # df.to_csv('embedded_result.csv', index=False)
 
-    def handle_message(self, prompt):
+    def run_GPT(self, prompt):
         response = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
@@ -39,11 +42,21 @@ class background():
         )
         return response.choices[0].message.content
 
-    def get_embedding(self, text):
+    def get_embedding(text, model="text-embedding-3-small"):
         text = text.replace("\n", " ")
-        response = client.embeddings.create(input = [text], model="text-embedding-3-small").data[0].embedding
+        response = self.client.embeddings.create(input = [text], model=model).data[0].embedding
         return response
-    
+
+    def get_talk_embedding():
+        with open('talk_record.json', 'r', encoding='utf-8') as f:
+            conversation_data = json.load(f)
+        with open('embedd.csv', mode='w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow(['role', 'content', 'embedding'])
+        for message in conversation_data['conversations']:
+            embedding = get_embedding(message['content'])
+            writer.writerow([message['role'], message['content'], embedding])
+
     def get_sound(self, text):
         response = self.client.audio.speech.create(
             model="tts-1",
@@ -51,12 +64,14 @@ class background():
             input=text,
         )
         response.stream_to_file("output.mp3")
-        return 
+        return
+    
+     
 
     def do_conv(self, question):
         self.history.append({"role": "user", "content": question})
         prompt = f"talk_record:{self.talk_record},  medical_info:{self.medical_info}, user question:{question}"
-        answer = self.handle_message(prompt)
+        answer = self.run_GPT(prompt)
         self.history.append({"role": "AI", "content": answer})
         if os.path.exists('talk_record.json') and os.path.getsize('talk_record.json') > 0:
             with open('talk_record.json', 'r', encoding='utf-8') as f:

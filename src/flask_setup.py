@@ -29,20 +29,20 @@ def search():
         print("answer:"+answer)
         return jsonify({
             "answer": answer,
-            "audio_url": "output.mp3"
+            "audio_url": "audio/output.mp3"
         })
 
-@app.route('/audio', methods=['POST'])
-def get_audio():
-    if request.method == 'POST':
-        data=request.get_json(force=True) 
-        AUDIO_FOLDER = '/home/ec2-user/AVP/AVP_AIAgent/src/'
-    return send_from_directory(AUDIO_FOLDER, data['audio_url'], mimetype='audio/mpeg')
+# @app.route('/audio', methods=['POST'])
+# def get_audio():
+#     if request.method == 'POST':
+#         data=request.get_json(force=True) 
+#         AUDIO_FOLDER = '/home/ec2-user/AVP/AVP_AIAgent/src/'
+#     return send_from_directory(AUDIO_FOLDER, data['audio_url'], mimetype='audio/mpeg')
 
-# @app.route('/audio/<filename>', methods=['GET'])
-# def get_audio(filename):
-#     AUDIO_FOLDER = '/home/ec2-user/AVP/AVP_AIAgent/src/'
-#     return send_from_directory(AUDIO_FOLDER, filename, mimetype='audio/mpeg')
+@app.route('/audio/<filename>', methods=['GET'])
+def get_audio(filename):
+    AUDIO_FOLDER = '/home/ec2-user/AVP/AVP_AIAgent/src/'
+    return send_from_directory(AUDIO_FOLDER, filename, mimetype='audio/mpeg')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
