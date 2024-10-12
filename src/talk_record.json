@@ -79,6 +79,22 @@
         {
             "role": "AI",
             "content": "Hello! How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "Hi"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "Hi"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
         }
     ]
 }

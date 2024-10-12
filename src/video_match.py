@@ -1,16 +1,12 @@
 import boto3
 from  openai import OpenAI
-# from autogen import Agent
 import json
 import os
 import pinecone
-import pandas as pd
 
 #get openai key
 ssm = boto3.client('ssm',region_name='us-east-2')
-parameter_openai = ssm.get_parameter(Name='/openai/api_key', WithDecryption=True)
-parameter_pinecone = ssm.get_parameter(Name='/pinecone/api_key', WithDecryption=True)
-
+parameter = ssm.get_parameter(Name='/openai/api_key', WithDecryption=True)
 
 class background():
     def __init__(self):
@@ -27,25 +23,37 @@ class background():
         self.talk_record = talk_data
         # self.talk_record = json.dumps(talk_data)
         
-        self.client = OpenAI(api_key=parameter_openai['Parameter']['Value'])
+        self.client = OpenAI(api_key=parameter['Parameter']['Value'])
         self.history = []
 
         # df['ada_embedding'] = df.combined.apply(lambda x: self.get_embedding(x, model='text-embedding-3-small'))
         # df.to_csv('embedded_result.csv', index=False)
-        self.pinecone.init(api_key=parameter_pinecone['Parameter']['Value'], environment="us-east-1")
-        
-
 
     def run_GPT(self, prompt):
         response = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info to help answer the user's question."},
+                {"role": "system", "content": "You are an AI assistant with medical knowledge. Right now, the students are practicing the lumbar puncture medical procedure. The following will be textual descriptions of the students' procedural steps. Please arrange these texts in the correct professional medical sequence for the procedure."},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=100
         )
         return response.choices[0].message.content
+
+    def get_embedding(text, model="text-embedding-3-small"):
+        text = text.replace("\n", " ")
+        response = self.client.embeddings.create(input = [text], model=model).data[0].embedding
+        return response
+
+    def get_talk_embedding():
+        with open('talk_record.json', 'r', encoding='utf-8') as f:
+            conversation_data = json.load(f)
+        with open('embedd.csv', mode='w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow(['role', 'content', 'embedding'])
+        for message in conversation_data['conversations']:
+            embedding = get_embedding(message['content'])
+            writer.writerow([message['role'], message['content'], embedding])
 
     def get_sound(self, text):
         response = self.client.audio.speech.create(
@@ -55,45 +63,7 @@ class background():
         )
         response.stream_to_file("output.mp3")
         return
-
-    def get_embedding(self, text, model="text-embedding-3-small"):
-        text = text.replace("\n", " ")
-        response = self.client.embeddings.create(input = [text], model=model).data[0].embedding
-        return response
-
-    def get_talk_embedding(self):
-        with open('talk_record.json', 'r', encoding='utf-8') as f:
-            conversation_data = json.load(f)
-        with open('talk_embedd.csv', mode='w', newline='', encoding='utf-8') as file:
-            writer = csv.writer(file)
-            # writer.writerow(['role', 'content', 'embedding'])
-        for message in conversation_data['conversations']:
-            embedding = self.get_embedding(message['content'])
-            writer.writerow([embedding])
-            # writer.writerow([message['role'], message['content'], embedding])
-        return
-
-    def get_knowledge_embedding(self):
-        df = pd.read_csv('medical_info.csv')
-        with open('medical_embedd.csv', mode='w', newline='', encoding='utf-8') as file:
-            writer = csv.writer(file)
-        for i, line in df.iterrows():
-            embedding = self.get_embedding(line)
-            writer.writerow([embedding])
-        return 
-
-    def retrieval(self, query_text):
-        index_name = "medical-doc-index"
-        self.pinecone.create_index(index_name, dimension=1536)
-        index = self.pinecone.Index(index_name)
-        self.get_knowledge_embedding
-        df = pd.read_csv('medical_embedd.csv')
-        for i, row in df.iterrows():
-            index.upsert([(i, row)])
-        query_embed = self.get_embedding(query_text)
-        result = index.query(queries=[query_embed], top_k=3)
-        return result
-
+    
     def do_conv(self, question):
         self.history.append({"role": "user", "content": question})
         prompt = f"talk_record:{self.talk_record},  medical_info:{self.medical_info}, user question:{question}"
@@ -119,5 +89,3 @@ if __name__ == "__main__":
     question = "hi,what is your name"
     answer = new.do_conv(question)
     print(answer)
-
-
