@@ -25,7 +25,7 @@ def search():
         print("question:"+data['words'])
         new = Autogen_try.background()
         question = data['words']
-        answer = new.do_conv(question)
+        answer = new.do_conv_RAG(question)
         print("answer:"+answer)
         return jsonify({
             "answer": answer,

@@ -95,6 +95,62 @@
         {
             "role": "AI",
             "content": "Hello! How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "Hi what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "Hi what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "Hi what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "Hi what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "What is the age range for the Lumbar Puncture patient?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the content in the medical_info and the previous conversation, there is no specific information regarding the age range for Lumbar Puncture patients. However, in general, Lumbar Punctures can be performed on patients of various ages, from infants to the elderly, depending on the medical indication and the patient's overall health condition. The procedure is commonly done to collect cerebrospinal fluid for diagnostic purposes in patients with various neurological conditions.\n\nIf you have a specific age-related question or if you"
+        },
+        {
+            "role": "user",
+            "content": "What is the age of youngest Patient to do Lumbar Puncture?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the typical medical practice, infants can undergo lumbar puncture if there is a medical necessity, such as suspected infections like meningitis. Therefore, the age of the youngest patient who may undergo a lumbar puncture procedure is typically in the infant age range, which can vary from newborns to toddlers. It's essential to note that the decision to perform a lumbar puncture on a patient, especially an infant, is based on the medical condition and the recommendation of the healthcare provider."
+        },
+        {
+            "role": "user",
+            "content": "What is the age of youngest Patient to do Lumbar Puncture?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the typical medical practice, infants can undergo lumbar puncture if there is a medical necessity, such as suspected infections like meningitis. Therefore, the age of the youngest patient who may undergo a lumbar puncture procedure is typically in the infant age range, which can vary from newborns to toddlers. It's essential to note that the decision to perform a lumbar puncture on a patient, especially an infant, is based on the medical condition and the recommendation of the healthcare provider."
         }
     ]
 }
