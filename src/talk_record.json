@@ -151,6 +151,102 @@
         {
             "role": "AI",
             "content": "Based on the typical medical practice, infants can undergo lumbar puncture if there is a medical necessity, such as suspected infections like meningitis. Therefore, the age of the youngest patient who may undergo a lumbar puncture procedure is typically in the infant age range, which can vary from newborns to toddlers. It's essential to note that the decision to perform a lumbar puncture on a patient, especially an infant, is based on the medical condition and the recommendation of the healthcare provider."
+        },
+        {
+            "role": "user",
+            "content": "hi!"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! How can I assist you today? If you have any medical questions or need assistance, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "What is the oldest age of  Patient to do Lumbar Punctur?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the information in the medical records, the age of the oldest patient who has undergone a Lumbar Puncture procedure is 80 years old. This indicates that Lumbar Punctures can be performed on patients of various ages, including older individuals like the patient who had the procedure done at the age of 80. It's important to consider that the decision to perform a Lumbar Puncture is based on medical necessity and the patient's health condition."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the information in the medical_info part, it seems that there is no specific information related to the location of a hospital. If you have a question about a particular hospital or medical facility, please provide more details so I can assist you further."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the information in the medical_info part, it seems that there is no specific information related to the location of a hospital. If you have a question about a particular hospital or medical facility, please provide more details so I can assist you further."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the content in the medical_info, the information related to the location of the hospital is as follows: \"The hospital is in 708 S 6th St Champaign IL\". This information indicates that the hospital is located at 708 S 6th St, Champaign, IL. If you need more details or have any other questions, feel free to ask!"
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "Based on the content in the medical_info, the hospital is located at 708 S 6th St, Champaign, IL."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "The hospital is located at 708 S 6th St, Champaign, IL."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "The hospital is located at 708 S 6th St, Champaign, IL."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "The hospital is located at 708 S 6th St, Champaign, IL."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "The hospital is located at 708 S 6th St, Champaign, IL."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "The hospital is located at 708 S 6th St, Champaign, IL."
+        },
+        {
+            "role": "user",
+            "content": "Where is the hospital in?"
+        },
+        {
+            "role": "AI",
+            "content": "The hospital is located at 708 S 6th St, Champaign, IL."
         }
     ]
 }

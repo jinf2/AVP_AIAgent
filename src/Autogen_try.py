@@ -38,12 +38,11 @@ class background():
         self.pinecone = pinecone.Pinecone(api_key=parameter_pinecone['Parameter']['Value'])
         
 
-
     def run_GPT(self, prompt):
         response = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info to help answer the user's question."},
+                {"role": "system", "content": "You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info to help answer the user's question. Just answer the question directly"},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=100
@@ -69,28 +68,27 @@ class background():
             conversation_data = json.load(f)
         with open('talk_embedd.csv', mode='w', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
-            # writer.writerow(['role', 'content', 'embedding'])
             for message in conversation_data['conversations']:
                 embedding = self.get_embedding(message['content'])
                 writer.writerow([embedding])
-            # writer.writerow([message['role'], message['content'], embedding])
         return
 
     def get_knowledge_embedding(self):
         df = pd.read_csv('medical_info.csv')
-        with open('medical_embedd.csv', mode='w', newline='', encoding='utf-8') as file:
-            writer = csv.writer(file)
-            writer.writerow(['id', 'embedding'])
-            for i, line in df.iterrows():
-                text = str(line)
-                embedding = self.get_embedding(text)
-                embedding_str = json.dumps(embedding)
-                writer.writerow([i,embedding_str])
-        print('get_knowledge_embedding work')
-        return 
+        existing_data = {"vectors": []}
+        for i, line in df.iterrows():
+            embedding = self.get_embedding(line['sentence'])
+            embedding = list(map(float, embedding))
+            # embedding_str = json.dumps(embedding)
+            existing_data["vectors"].append({"id" : f"vec{i}", 
+                                            "values" : embedding, 
+                                            "metadata": {"sentence":line["sentence"]}
+                                            })
+        with open('medical_embed.json', 'w', encoding='utf-8') as f:
+            json.dump(existing_data, f, ensure_ascii=False, indent=4)     
+        return
 
     def retrieval(self, query_text):
-        print('retrieval work')
         index_name = "medical-doc-index"
         if index_name not in self.pinecone.list_indexes().names():
             self.pinecone.create_index(
@@ -104,20 +102,14 @@ class background():
             )
         index = self.pinecone.Index(index_name)
         self.get_knowledge_embedding()
-        df = pd.read_csv('medical_embedd.csv')
-        for i, row in df.iterrows():
-            if pd.isna(row['embedding']):
-                continue
-            row_list = json.loads(row['embedding'])
-            row_list = list(map(float, row_list))
-            if any(np.isnan(row_list)) or any(np.isinf(row_list)):
-                print("Query embedding contains NaN or Infinity values. in")
-                continue
-            if len(row_list) != 1536:
-                print(f"Invalid vector length: {len(row_list)}. Expected length is 1536.")
-                return None
-            index.upsert([(str(i), row_list)])
-            # index.upsert([(str(i), list(map(float, row['embedding'])))])
+
+        with open('medical_embed.json', 'r', encoding='utf-8') as json_file:
+            medical_data = json.load(json_file)
+        index.upsert(
+            vectors = medical_data["vectors"],
+            namespace= "medical1"
+        )
+            
         query_embed = self.get_embedding(query_text)
         query_embed = list(map(float, query_embed))
         if any(np.isnan(query_embed)) or any(np.isinf(query_embed)):
@@ -125,8 +117,8 @@ class background():
         if len(query_embed) != 1536:
             print(f"Invalid vector length: {len(query_embed)}. Expected length is 1536.")
             return None
-        print(query_embed)
         result = index.query(
+            namespace="medical1",
             vector=[query_embed], 
             top_k=3,
             include_metadata=True
@@ -137,8 +129,16 @@ class background():
         self.history.append({"role": "user", "content": question})
         retrieval_result = self.retrieval(question)
         print("retrieval_result is")
-        print(retrieval_result)
-        prompt = f"After retrieval, in medical_info part, they have these content related to question from user:{retrieval_result}, talk_record:{self.talk_record},user question:{question}"
+        retrieval_text = []
+        with open('medical_embed.json', 'r', encoding='utf-8') as json_file:
+            medical_file = json.load(json_file)
+        for i in range(len(retrieval_result['matches'])):
+            if i == 0:
+                retrieval_text.append(retrieval_result['matches'][0]['metadata']['sentence'])
+            elif(retrieval_result['matches'][i]["score"]<1):
+                retrieval_text.append(retrieval_result['matches'][i]['metadata']['sentence'])
+        print(retrieval_text)
+        prompt = f"After retrieval, in medical_info part, they have these content related to question from user:{retrieval_text}, talk_record:{self.talk_record},user question:{question}"
         answer = self.run_GPT(prompt)
         self.history.append({"role": "AI", "content": answer})
         if os.path.exists('talk_record.json') and os.path.getsize('talk_record.json') > 0:
