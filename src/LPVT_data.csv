@@ -1,0 +1,28 @@
+Clip Name,Step Name,Duration (second),Visual Component
+P1-0,Start,,Arrow indicating LP simulator
+P2-0,palpate - line,6.7,Draw imaginary line between 2 iliac crests
+P2-1,palpate - mark,6.54,Thumbs finding and skin-marking midline
+P3-0,iodine - 1,8.9,Draw Iodine on target first time
+P3-1,iodine - 2,9.54,Draw Iodine on target second time
+P3-2,iodine - 3,8.7,Draw Iodine on target third time
+P4-0,towel - towel,1,Put towel
+P4-1,towl - drape,1,Put drape
+P5-0,anesthesia - ampule,3.85,Break Ampule with anesthesia
+P5-1,anesthesia - syringe,5.18,Use syringe get anesthesia liquid
+P5-2,anesthesia - needle,2.67,Swap needle from large to small for injection
+P5-3,anesthesia - inject,8.05,Injecting anesthesia through syringe
+P6-0,manometer - base,1,Showing base of manometer
+P6-1,manometer - top,1,Showing the solid extension of manometer
+P6-2,manometer - bottom,1,Showing the soft extension of manometer
+P6-3,manometer - stopcock,1,Showing the stopcock of manometer
+P8-0,spinalneedle - insert,6.2,Rotate the spinal needle and then insert
+P8-1,spinalneedle - adjust,12.14,Check if right position and then change rotation and insert again
+P8-2,spinalneedle - success,4.15,Insert success and liquid dripping
+P9-0,getliquid - manometer,3.6,Connect the manometer to spinal needle
+P9-1,getliquid - liquid,12,Liquid in manometer is raising
+P10-0,collect - twist,3,Twist stopcock to let liquid flow
+P10-1,collect - first,7,Collect liquid for the first bottle and then remove manometer
+P10-2,collect - second,7,Collect liquid for the second bottle
+P10-3,collect - third,7,Collect Liquid for the third bottle
+P10-4,collect - fourth,7,Collect Liquid for the fourth bottle
+P10-5,collect - end,3.5,Remove spinal needle
