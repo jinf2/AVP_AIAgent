@@ -20,9 +20,10 @@ class background():
 
     def run_GPT(self, prompt):
         response = self.client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            # "gpt-3.5-turbo"
+            model="gpt-4o",
             messages=[
-                {"role": "system", "content": "You are an AI assistant with medical knowledge. The student is currently practicing the lumbar puncture procedure. 'LPVT_data' contains the complete operation steps of the lumbar puncture procedure. 'Clip Name' refers to the name of the step clip, for example, P6 represents the sixth major step, and P6-1 represents the second sub-step within the sixth major step (sub-steps are numbered starting from 0, and currently, there is no seventh major step). 'Step Name' refers to the name of the sub-step. 'Duration (second)' is the playback duration of each sub-step video. 'Visual Component' describes the description of the content displayed to the student in the video demonstration.The student will ask questions related to the procedure steps. Answer the student's question and guide them on how to proceed to the next step based on the 'Visual Component. Also provide the 'Clip Name'fro step."},
+                {"role": "system", "content": "You are an AI assistant with medical knowledge. The student is currently practicing the lumbar puncture procedure. 'LPVT_data' contains the complete operation steps of the lumbar puncture procedure. 'Clip Name' refers to the name of the step clip, for example, P6 represents the sixth major step, and P6-1 represents the second sub-step within the sixth major step (sub-steps are numbered starting from 0, and currently, there is no seventh major step). 'Step Name' refers to the name of the sub-step. 'Duration (second)' is the playback duration of each sub-step video. 'Visual Component' describes the description of the content displayed to the student in the video demonstration.The student will ask questions related to the procedure steps. First of all, answer the student's question and guide them on how to proceed to the next step based on the 'Visual Component'. Secondly,you should provide the 'Clip Name' for step and return the string for how to play the video. For example, the question is 'Are there any step related to insert?', the answer acturally about P8-0,P8-1,P8-2. Then, you should provide like [P8-0,blank,P8-1,blank,P8-2]. At the end, the format of answer which AI assistant provide should be '1.Question answer: ; 2. The string for how to play the video'"},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=200
@@ -52,6 +53,7 @@ class background():
 if __name__ == "__main__":
     new = background()
     # I just start,what should I do first?
-    question = "What should I do after drawing Iodine?"
+    # "What should I do after drawing Iodine?"
+    question = "I just start,what should I do first?"
     answer = new.do_conv(question)
     print(answer)

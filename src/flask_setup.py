@@ -44,5 +44,19 @@ def get_audio(filename):
     AUDIO_FOLDER = '/home/ec2-user/AVP/AVP_AIAgent/src/'
     return send_from_directory(AUDIO_FOLDER, filename, mimetype='audio/mpeg')
 
+@app.route('/video', methods=['POST'])
+def video_match():
+    import video_match
+    if request.method == 'POST':
+        data=request.get_json(force=True) 
+        print("question:"+data['words'])
+        new = video_match.background()
+        question = data['words']
+        answer = new.do_conv(question)
+        print("answer:"+answer)
+        return jsonify({
+            "answer": answer
+        })
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
