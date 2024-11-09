@@ -18,7 +18,7 @@ class background():
         self.client = OpenAI(api_key=parameter['Parameter']['Value'])
 
 
-    def run_GPT(self, prompt):
+    def run_GPT_video(self, prompt):
         response = self.client.chat.completions.create(
             # "gpt-3.5-turbo"
             model="gpt-4o",
@@ -30,24 +30,9 @@ class background():
         )
         return response.choices[0].message.content
 
-    def do_conv(self, question):
+    def do_conv_video(self, question):
         prompt = f"LPVT_data:{self.LPVT_data}, user question:{question}"
-        answer = self.run_GPT(prompt)
-        # self.history.append({"role": "user", "content": question})
-        # self.history.append({"role": "AI", "content": answer})
-        # if os.path.exists('talk_record.json') and os.path.getsize('talk_record.json') > 0:
-        #     with open('talk_record.json', 'r', encoding='utf-8') as f:
-        #         try:
-        #             existing_data = json.load(f)
-        #         except json.JSONDecodeError:
-        #             existing_data = {"conversations": []}
-        # else:
-        #     existing_data = {"conversations": []}
-        # existing_data["conversations"].extend(self.history)
-        
-        # with open('talk_record.json', 'w', encoding='utf-8') as f:
-        #     json.dump(existing_data, f, ensure_ascii=False, indent=4)     
-        # self.get_sound(answer)
+        answer = self.run_GPT_video(prompt)
         return answer
 
 if __name__ == "__main__":

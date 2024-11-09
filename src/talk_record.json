@@ -7,6 +7,379 @@
         {
             "role": "AI",
             "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "The name of the medical procedure is Lumbar Puncture."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "The name of the medical procedure is Lumbar Puncture."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "The name of the medical procedure is Lumbar Puncture."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "The name of the medical procedure is Lumbar Puncture."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "The name of the medical procedure is Lumbar Puncture."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "The name of the medical procedure is Lumbar Puncture."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "The name of the medical procedure is Lumbar Puncture."
+        },
+        {
+            "role": "user",
+            "content": "hi"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! The hospital is located at 708 S 6th St, Champaign, IL. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant."
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "hi,what is your name"
+        },
+        {
+            "role": "AI",
+            "content": "Hello! My name is Assistant. How can I assist you today?"
+        },
+        {
+            "role": "user",
+            "content": "What is Sponge Applicators?"
+        },
+        {
+            "role": "AI",
+            "content": "Sponge applicators are sterile sponges attached to handles, used to apply antiseptic solution to the skin. They are commonly used to apply antiseptic solution to puncture sites for disinfection."
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "As you just started, the first thing you should do is to open the tray in a sterile fashion. Ensure you open it carefully to avoid contaminating any of the contents inside. Peel back the packaging, making sure to open it in an area that allows for creating a sterile field. Remember to only touch the very edges and corners of the paper wrapping, not the middle, to prevent contamination. Be cautious as you open the last part, making sure not to touch the contents. Everything inside the tray1. Question answer: The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves. \n\n2. The string for how to play the video [P1-0]."
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "As you just started, the first thing you should do is to open the tray in a sterile fashion. Ensure you open it carefully to avoid contaminating any of the contents inside. Remember to only touch the very edges and corners of the paper wrapping, not the middle, to prevent contamination. Be cautious as you open the last part, making sure not to touch the contents. Everything inside the tray is sterile and should only be touched if you are wearing sterile gloves.I'm here to assist you! Based on your question regarding the first step in the lumbar puncture procedure:\n\n1. Question answer: The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\n\n2. The string for how to play the video [P1-0]."
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "The first thing you should do when just starting is to open the tray in a sterile fashion. Ensure you open it carefully to avoid contaminating any of the contents inside. Remember to only touch the very edges and corners of the paper wrapping, not the middle, to prevent contamination. Be cautious as you open the last part, making sure not to touch the contents. Everything inside the tray is sterile and should only be touched if you are wearing sterile gloves.{\n    \"Question answer\": \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\",\n    \"The string for how to play the video\": \"[P1-0]\"\n}"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "When just starting, the first thing you should do is to open the tray in a sterile fashion. Carefully peel back the packaging to avoid contaminating any of the contents inside. Remember to only touch the very edges and corners of the paper wrapping, not the middle, to prevent contamination. Be cautious as you open the last part to ensure not to touch the contents. Everything inside the tray is sterile and should only be touched if you are wearing sterile gloves.```json\n{\n  \"Answer\": {\n    \"Question answer\": \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\"\n  },\n  \"Video\": {\n    \"The string for how to play the video\": \"[P1-0]\"\n  }\n}\n```"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "When just starting, the first thing you should do is to open the tray in a sterile fashion. Carefully peel back the packaging to avoid contaminating any of the contents inside. Remember to only touch the very edges and corners of the paper wrapping, not the middle, to prevent contamination. Be cautious as you open the last part to ensure not to touch the contents. Everything inside the tray is sterile and should only be touched if you are wearing sterile gloves.```json\n{\n   \"Question_answer\": {\n      \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\"\n   },\n   \"Video\": {\n      \"The string for how to play the video\": \"[P1-0]\"\n   }\n}\n```"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "When just starting, the first thing you should do is to open the tray in a sterile fashion. Carefully peel back the packaging to avoid contaminating any of the contents inside. Remember to only touch the very edges and corners of the paper wrapping, not the middle, to prevent contamination. Be cautious as you open the last part to ensure not to touch the contents. Everything inside the tray is sterile and should only be touched if you are wearing sterile gloves."
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "```json\n{\n  \"Question_answer\": {\n    \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\"\n  },\n  \"Video\": {\n    \"The string for how to play the video\": \"[P1-0]\"\n  }\n}\n```"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "```json\n{\n  \"Question_answer\": {\n    \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\"\n  },\n  \"Video_string\": {\n    \"The string for how to play the video\": \"[P1-0]\"\n  }\n}\n```"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "```json\n{\n  \"Question_answer\": \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\",\n  \"Video_string\": \"[P1-0]\"\n}\n```"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "```json\n{\n  \"Question_answer\": \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\",\n  \"Video_string\": \"[P1-0]\"\n}\n```"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "```json\n{\n  \"Question_answer\": \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\",\n  \"Video_string\": \"[P1-0]\"\n}\n```"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "{'Question_answer': 'The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.', 'animation_clip': '[P1-0]'}"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "{'Question_answer': 'The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.', 'animation_clip': '[P1-0]'}"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "{\"Question_answer\": \"The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.\", \"animation_clip\": \"[P1-0]\"}"
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.",
+                "animation_clip": "[P1-0]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.",
+                "animation_clip": "[P1-0]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.",
+                "animation_clip": "[P1-0]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.",
+                "animation_clip": "[P1-0]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": "When you just start, the first thing you should do is to open the tray in a sterile fashion. Carefully peel back the packaging to avoid contaminating any of the contents inside. Remember to only touch the very edges and corners of the paper wrapping, not the middle, to prevent contamination. Be cautious as you open the last part to ensure not to touch the contents. Everything inside the tray is sterile and should only be touched if you are wearing sterile gloves."
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.",
+                "animation_clip": "[P1-0]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.",
+                "animation_clip": "[P1-0]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "I just start,what should I do first?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "The first step in the lumbar puncture procedure is to open the lumbar puncture tray in a sterile fashion. This involves carefully peeling back the packaging and ensuring that the contents remain uncontaminated. When the tray is opened, make sure to only touch the very edges and corners of the paper wrapping to avoid contamination. Everything inside the opened tray is sterile, so it should only be touched with sterile gloves.",
+                "animation_clip": "[P1-0]"
+            }
         }
     ]
 }

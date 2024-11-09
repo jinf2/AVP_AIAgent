@@ -25,10 +25,11 @@ def search():
         print("question:"+data['words'])
         new = Autogen_try.background()
         question = data['words']
-        answer = new.do_conv(question)
-        print("answer:"+answer)
+        answer = new.do_conv_RAG(question)
+        print("answer:"+answer['Question_answer'])
         return jsonify({
-            "answer": answer,
+            "answer": answer['Question_answer'],
+            "animation_clip":answer['animation_clip'],
             "audio_url": "audio/output.mp3"
         })
 

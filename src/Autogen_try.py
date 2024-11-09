@@ -36,16 +36,29 @@ class background():
         # df['ada_embedding'] = df.combined.apply(lambda x: self.get_embedding(x, model='text-embedding-3-small'))
         # df.to_csv('embedded_result.csv', index=False)
         self.pinecone = pinecone.Pinecone(api_key=parameter_pinecone['Parameter']['Value'])
+        self.LPVT_data = pd.read_csv('LPVT_data.csv')
         
 
     def run_GPT(self, prompt):
         response = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info to help answer the user's question. Just answer the question directly"},
+                {"role": "system", "content": "You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info which may related to user question to help answer the user's question. If the provided information not relative to question. Do not use it.Just answer the question directly"},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=100
+        )
+        return response.choices[0].message.content
+
+    def run_GPT_video(self, prompt):
+        response = self.client.chat.completions.create(
+            # "gpt-3.5-turbo"
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": "You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info which may related to user question to help answer the user's question. If the provided information not relative to question. Do not use it.Just answer the question directly. 'LPVT_data' contains the complete operation steps of the lumbar puncture procedure. 'Clip Name' refers to the name of the step clip, for example, P6 represents the sixth major step, and P6-1 represents the second sub-step within the sixth major step (sub-steps are numbered starting from 0, and currently, there is no seventh major step). 'Step Name' refers to the name of the sub-step. 'Duration (second)' is the playback duration of each sub-step video. 'Visual Component' describes the description of the content displayed to the student in the video demonstration.The student will ask questions related to the procedure steps. First of all, answer the student's question and guide them on how to proceed to the next step based on the 'Visual Component'. Secondly,you should provide the 'Clip Name' for step and return the string for how to play the video. For example, the question is 'Are there any step related to insert?', the answer acturally about P8-0,P8-1,P8-2. Then, you should provide like [P8-0,blank,P8-1,blank,P8-2]. At the end, the format of answer which AI assistant provide should be string:{'Question_answer':'' , 'animation_clip':''}"},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=200
         )
         return response.choices[0].message.content
 
@@ -74,16 +87,21 @@ class background():
         return
 
     def get_knowledge_embedding(self):
-        df = pd.read_csv('medical_info.csv')
+        with open('LPVT_RAG_Basic_Knowledge.txt', 'r', encoding='utf-8') as file:
+            content = file.read()
+        paragraphs = content.split('\n\n')  
+        paragraphs = [para.strip() for para in paragraphs if para.strip()]
+        # df = pd.read_csv('medical_info.csv')
         existing_data = {"vectors": []}
-        for i, line in df.iterrows():
-            embedding = self.get_embedding(line['sentence'])
+        i=0
+        for line in paragraphs:
+            embedding = self.get_embedding(line)
             embedding = list(map(float, embedding))
-            # embedding_str = json.dumps(embedding)
             existing_data["vectors"].append({"id" : f"vec{i}", 
                                             "values" : embedding, 
-                                            "metadata": {"sentence":line["sentence"]}
+                                            "metadata": {"sentence":line}
                                             })
+            i=i+1
         with open('medical_embed.json', 'w', encoding='utf-8') as f:
             json.dump(existing_data, f, ensure_ascii=False, indent=4)     
         return
@@ -101,15 +119,16 @@ class background():
                 )
             )
         index = self.pinecone.Index(index_name)
-        self.get_knowledge_embedding()
-
-        with open('medical_embed.json', 'r', encoding='utf-8') as json_file:
-            medical_data = json.load(json_file)
-        index.upsert(
-            vectors = medical_data["vectors"],
-            namespace= "medical1"
-        )
-            
+        
+        new_content = False
+        if new_content:
+            self.get_knowledge_embedding()
+            with open('medical_embed.json', 'r', encoding='utf-8') as json_file:
+                medical_data = json.load(json_file)
+                index.upsert(
+                    vectors = medical_data["vectors"][i:len(medical_data["vectors"])],
+                    namespace= f"medical1"
+                )
         query_embed = self.get_embedding(query_text)
         query_embed = list(map(float, query_embed))
         if any(np.isnan(query_embed)) or any(np.isinf(query_embed)):
@@ -128,7 +147,6 @@ class background():
     def do_conv_RAG(self, question):
         self.history.append({"role": "user", "content": question})
         retrieval_result = self.retrieval(question)
-        print("retrieval_result is")
         retrieval_text = []
         with open('medical_embed.json', 'r', encoding='utf-8') as json_file:
             medical_file = json.load(json_file)
@@ -137,10 +155,13 @@ class background():
                 retrieval_text.append(retrieval_result['matches'][0]['metadata']['sentence'])
             elif(retrieval_result['matches'][i]["score"]<1):
                 retrieval_text.append(retrieval_result['matches'][i]['metadata']['sentence'])
-        print(retrieval_text)
-        prompt = f"After retrieval, in medical_info part, they have these content related to question from user:{retrieval_text}, talk_record:{self.talk_record},user question:{question}"
-        answer = self.run_GPT(prompt)
-        self.history.append({"role": "AI", "content": answer})
+        # print("retrieval_result is")
+        # print(retrieval_text)
+        prompt = f"Please use below information, directly answer user question. In medical_info part, they have these content may related to question from user:{retrieval_text}, talk_record:{self.talk_record},LPVT_data:{self.LPVT_data},user question:{question}."
+        answer = self.run_GPT_video(prompt)
+        answer = answer.replace("'", '"') 
+        answer_jason = json.loads(answer)
+        self.history.append({"role": "AI", "content": answer_jason})
         if os.path.exists('talk_record.json') and os.path.getsize('talk_record.json') > 0:
             with open('talk_record.json', 'r', encoding='utf-8') as f:
                 try:
@@ -153,7 +174,12 @@ class background():
         
         with open('talk_record.json', 'w', encoding='utf-8') as f:
             json.dump(existing_data, f, ensure_ascii=False, indent=4)     
-        self.get_sound(answer)
+        self.get_sound(answer_jason['Question_answer'])
+        return answer_jason
+
+    def do_conv_video(self, question):
+        prompt = f"LPVT_data:{self.LPVT_data}, user question:{question}"
+        answer = self.run_GPT_video(prompt)
         return answer
 
     def do_conv(self, question):
@@ -178,8 +204,8 @@ class background():
 
 if __name__ == "__main__":
     new = background()
-    question = "hi,what is your name"
-    answer = new.do_conv(question)
+    question = "I just start,what should I do first?"
+    answer = new.do_conv_RAG(question)
     print(answer)
 
 
