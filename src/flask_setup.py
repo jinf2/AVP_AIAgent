@@ -1,4 +1,5 @@
 from flask import Flask,jsonify,request,send_from_directory
+import json
 
 app = Flask(__name__)
 app.json.sort_keys = False
@@ -16,6 +17,19 @@ def connect(text):
     #     "msg":"success",
     #     "data":result
     # }
+
+@app.route('/upload', methods=['POST'])
+def upload_data():
+    if request.method == 'POST':
+        import avp_db
+        data=request.get_json(force=True) 
+        with open('current_data.json', 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)    
+        if "user_id" not in data.keys():
+            return "No user_id, Upload Unsuccessful :("
+        print("user_id is:"+data["user_id"])
+        result = "Upload Successful :)"
+        return result
 
 @app.route('/search', methods=['POST'])
 def search():
@@ -58,6 +72,7 @@ def video_match():
         return jsonify({
             "answer": answer
         })
+
 
 
 if __name__ == '__main__':

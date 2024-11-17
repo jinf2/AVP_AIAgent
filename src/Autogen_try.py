@@ -7,6 +7,7 @@ import pinecone
 import pandas as pd
 import csv
 import ast
+import re
 import numpy as np
 
 #get openai key
@@ -53,11 +54,17 @@ class background():
     def run_GPT_video(self, prompt):
         response = self.client.chat.completions.create(
             # "gpt-3.5-turbo"
-            model="gpt-4o",
+            model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info which may related to user question to help answer the user's question. If the provided information not relative to question. Do not use it.Just answer the question directly. 'LPVT_data' contains the complete operation steps of the lumbar puncture procedure. 'Clip Name' refers to the name of the step clip, for example, P6 represents the sixth major step, and P6-1 represents the second sub-step within the sixth major step (sub-steps are numbered starting from 0, and currently, there is no seventh major step). 'Step Name' refers to the name of the sub-step. 'Duration (second)' is the playback duration of each sub-step video. 'Visual Component' describes the description of the content displayed to the student in the video demonstration.The student will ask questions related to the procedure steps. First of all, answer the student's question and guide them on how to proceed to the next step based on the 'Visual Component'. Secondly,you should provide the 'Clip Name' for step and return the string for how to play the video. For example, the question is 'Are there any step related to insert?', the answer acturally about P8-0,P8-1,P8-2. It mast have 'blank' in each step. Then, you should provide like [P8-0,blank,P8-1,blank,P8-2]. At the end, the format of answer which AI assistant provide should be string:{'Question_answer':'' , 'animation_clip':''}"},
+                {"role": "system", "content": ("You are an AI assistant with medical knowledge, please use the talk_record which stores the previous conversations and medical_info which may related to user question to help answer the user's question. If the provided information not relative to question. Do not use it.Just answer the question directly. 'LPVT_data' contains the complete operation steps of the lumbar puncture procedure. 'Clip Name' refers to the name of the step clip, for example, P6 represents the sixth major step, and P6-1 represents the second sub-step within the sixth major step (sub-steps are numbered starting from 0, and currently, there is no seventh major step). 'Step Name' refers to the name of the sub-step. 'Duration (second)' is the playback duration of each sub-step video. 'Visual Component' describes the description of the content displayed to the student in the video demonstration.The student will ask questions related to the procedure steps. First of all, answer the student's question and guide them on how to proceed to the next step based on the 'Visual Component'. Secondly,you should provide the 'Clip Name' for step and return the string for how to play the video. For example, the question is 'Are there any step related to insert?', the answer acturally about P8-0,P8-1,P8-2. It mast have 'blank' in each step. Then, you should provide like [P8-0,blank,P8-1,blank,P8-2]. At the end, the format of answer which AI assistant provide should be json format:"
+                "{\n"
+                "  'Question_answer': 'Answer to the user question',\n"
+                "  'animation_clip': 'Relevant clip names (e.g., [P6, P6-1])'\n"
+                "}\n"
+                "Ensure that the output is a valid JSON object.")},
                 {"role": "user", "content": prompt}
             ],
+            response_format={"type": "json_object"},
             max_tokens=200
         )
         return response.choices[0].message.content
@@ -159,7 +166,10 @@ class background():
         # print(retrieval_text)
         prompt = f"Please use below information, directly answer user question. In medical_info part, they have these content may related to question from user:{retrieval_text}, talk_record:{self.talk_record},LPVT_data:{self.LPVT_data},user question:{question}."
         answer = self.run_GPT_video(prompt)
-        answer = answer.replace("'", '"') 
+        # answer = answer.replace("'", '"') 
+        # match = re.search(r'\{.*\}', answer)
+        # if match:
+        #     answer = match.group()
         answer_jason = json.loads(answer)
         self.history.append({"role": "AI", "content": answer_jason})
         if os.path.exists('talk_record.json') and os.path.getsize('talk_record.json') > 0:
@@ -204,7 +214,7 @@ class background():
 
 if __name__ == "__main__":
     new = background()
-    question = "I just start,what should I do first?"
+    question = "What is the correct position?"
     answer = new.do_conv_RAG(question)
     print(answer)
 
