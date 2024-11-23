@@ -39,6 +39,12 @@ def search():
         print("question:"+data['words'])
         new = Autogen_try.background()
         question = data['words']
+        if question == "":
+            return jsonify({
+            "answer": "No problem identified",
+            "animation_clip":[],
+            "audio_url": "NA"
+        })
         answer = new.do_conv_RAG(question)
         print("answer:"+answer['Question_answer'])
         return jsonify({
