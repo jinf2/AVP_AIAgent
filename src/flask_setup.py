@@ -20,8 +20,8 @@ def connect(text):
 
 @app.route('/upload', methods=['POST'])
 def upload_data():
+    import avp_db
     if request.method == 'POST':
-        import avp_db
         data=request.get_json(force=True) 
         with open('current_data.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)    
@@ -29,6 +29,8 @@ def upload_data():
             return "No user_id, Upload Unsuccessful :("
         print("user_id is:"+data["user_id"])
         result = "Upload Successful :)"
+        # new_upload = avp_db.upload_background()
+        # new_upload.Upload(data)
         return result
 
 @app.route('/search', methods=['POST'])

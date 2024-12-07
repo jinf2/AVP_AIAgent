@@ -1,12 +1,3 @@
 {
-    "conversations": [
-        {
-            "role": "user",
-            "content": "what is your name?"
-        },
-        {
-            "role": "AI",
-            "content": "Hello! My name is Assistant. How can I assist you today?"
-        }
-    ]
+    "conversations": []
 }
