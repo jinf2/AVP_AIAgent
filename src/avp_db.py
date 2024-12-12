@@ -52,7 +52,7 @@ class upload_background():
                     Record_table_item={
                         'user_id': data["user_id"],
                         'upload_number':new_uploadtime,
-                        'start_step': data["user_id"],
+                        'start_step': data["start_step"],
                         'start_time': data["start_time"],
                         'end_step': data["end_step"],
                         'end_time': data["end_time"]}

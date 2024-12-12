@@ -39,7 +39,6 @@ class background():
         self.pinecone = pinecone.Pinecone(api_key=parameter_pinecone['Parameter']['Value'])
         self.LPVT_data = pd.read_csv('LPVT_data.csv')
         
-
     def run_GPT(self, prompt):
         response = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -51,6 +50,7 @@ class background():
         )
         return response.choices[0].message.content
 
+    # Main GPT function
     def run_GPT_video(self, prompt):
         response = self.client.chat.completions.create(
             # "gpt-3.5-turbo"
@@ -72,6 +72,7 @@ class background():
         )
         return response.choices[0].message.content
 
+    #Get GPT answer with sound
     def get_sound(self, text):
         response = self.client.audio.speech.create(
             model="tts-1",
@@ -81,11 +82,13 @@ class background():
         response.stream_to_file("output.mp3")
         return
 
+    #Get sentence embedding
     def get_embedding(self, text, model="text-embedding-3-small"):
         text = text.replace("\n", " ")
         response = self.client.embeddings.create(input = [text], model=model).data[0].embedding
         return response
 
+    #Get talk embedding file(not in used)
     def get_talk_embedding(self):
         with open('talk_record.json', 'r', encoding='utf-8') as f:
             conversation_data = json.load(f)
@@ -96,6 +99,7 @@ class background():
                 writer.writerow([embedding])
         return
 
+    #Get knowledge embedding file
     def get_knowledge_embedding(self):
         with open('LPVT_RAG_Basic_Knowledge.txt', 'r', encoding='utf-8') as file:
             content = file.read()
@@ -116,6 +120,7 @@ class background():
             json.dump(existing_data, f, ensure_ascii=False, indent=4)     
         return
 
+    #Do retrieval by pinecone 
     def retrieval(self, query_text):
         index_name = "medical-doc-index"
         if index_name not in self.pinecone.list_indexes().names():
@@ -153,6 +158,7 @@ class background():
             )
         return result
     
+    #Main function for doing conversition with RAG
     def do_conv_RAG(self, question):
         self.history.append({"role": "user", "content": question})
         retrieval_result = self.retrieval(question)
@@ -194,6 +200,7 @@ class background():
         answer = self.run_GPT_video(prompt)
         return answer
 
+    #Main function for doing conversition without RAG
     def do_conv(self, question):
         self.history.append({"role": "user", "content": question})
         prompt = f"talk_record:{self.talk_record},  medical_info:{self.medical_info}, user question:{question}"

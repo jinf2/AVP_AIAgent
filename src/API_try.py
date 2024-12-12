@@ -14,7 +14,7 @@ parameter = ssm.get_parameter(Name='/openai/api_key', WithDecryption=True)
 # openai.api_key=parameter['Parameter']['Value']
 
 client = OpenAI(
-    api_key=parameter['Parameter']['Value']
+    api_key=""
 )
 
 def extract_GPT_3(article_content):

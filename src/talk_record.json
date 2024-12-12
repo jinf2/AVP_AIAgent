@@ -1,3 +1,15 @@
 {
-    "conversations": []
+    "conversations": [
+        {
+            "role": "user",
+            "content": "I think I just hit a bone"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "It's completely normal to encounter bone when inserting the spinal needle, so don't worry too much. Here's what you can do: gently withdraw the needle just a little bit and try redirecting it slightly. Make sure you're keeping the needle aligned towards the patient's belly button. This process can take a few adjustments, so stay patient and confident. You're doing a great job!\n\nTo see this step in action, you can watch these clips from the procedure for guidance.",
+                "animation_clip": "[P8-0,blank,P8-1,blank,P8-2]"
+            }
+        }
+    ]
 }
