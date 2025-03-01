@@ -1,5 +1,6 @@
 from flask import Flask,jsonify,request,send_from_directory
 import json
+import awsgi
 
 app = Flask(__name__)
 app.json.sort_keys = False
@@ -38,17 +39,22 @@ def search():
     import Autogen_try
     if request.method == 'POST':
         data=request.get_json(force=True) 
-        print("question:"+data['words'])
         new = Autogen_try.background()
         question = data['words']
-        if question == "":
+        if data['words'] == "":
             return jsonify({
             "answer": "No problem identified",
             "animation_clip":[],
             "audio_url": "NA"
         })
-        answer = new.do_conv_RAG(question)
-        print("answer:"+answer['Question_answer'])
+        if "step" not in data.keys():
+            question = data['words']
+            answer = new.do_conv_RAG(question)
+        else:
+            question = data['words'] + "Now I'm stuck at " + data["step"]
+            answer = new.do_conv_RAG(question)
+        print("question:" + question)
+        print("answer:" + answer['Question_answer'])
         return jsonify({
             "answer": answer['Question_answer'],
             "animation_clip":answer['animation_clip'],
@@ -81,7 +87,8 @@ def video_match():
             "answer": answer
         })
 
-
+# def lambda_handler(event, context):
+#     return awsgi.response(app, event, context, base64_content_types={"image/png"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

@@ -54,6 +54,8 @@ class background():
     def run_GPT_video(self, prompt):
         response = self.client.chat.completions.create(
             # "gpt-3.5-turbo"
+            # "gpt-4.5-preview"
+            # "gpt-4o"
             model="gpt-4o",
             messages=[
                 {"role": "system", "content": ("You're a medical school instructor, and your students are practicing spinal tap surgery using VR devices. Talk to students in an encouraging and personal way, and use professional knowledge to answer questions."
@@ -68,7 +70,7 @@ class background():
             ],
             response_format={"type": "json_object"},
             max_tokens=500,
-            temperature=0.7
+            temperature=0.6
         )
         return response.choices[0].message.content
 
