@@ -4,7 +4,6 @@
 ```
 Python 3.9.16
 ```
-
 ## Setup
 1. Use "venv" to build python environment
 
@@ -109,7 +108,7 @@ AVP/
     - src/
       -- flask_setup.py
       -- Autogen_try.py
-      -- avp_db.py/
+      -- avp_db.py
       -- talk_record.json
       -- output.mp3
       -- LPVT_RAG_Basic_Knowledge.txt

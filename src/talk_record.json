@@ -13,178 +13,200 @@
         },
         {
             "role": "user",
-            "content": "What should I begin with"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there! You're doing great by asking questions. Let's start with the basics. First, you should familiarize yourself with the tools in the Lumbar Puncture Tray. Understanding each instrument and how to properly handle them is vital for the procedure. You'll find virtual labels above each tool, which you can click on to learn more about each one. Once you're comfortable with the tools, you can move on to identifying the anatomical landmarks, which is the second step. Remember, accuracy is key, and don't hesitate to ask if you have any more questions!",
-                "animation_clip": "[P1-0,blank,P2-0,blank,P2-1]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "I think I just hit a bone"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "It's alright to hit a bone during the procedure! Just take a moment to adjust. What you can do is gently pull the needle back a bit, then try to redirect it slightly upward towards the belly button. Keep it steady and feel for that sweet spot. Remember, you're doing a great job and it's all part of the learning process. Stay calm and focused, and you'll get it just right!\n\nTo help you visualize this step, you can watch the following clips.",
-                "animation_clip": "[P8-0,blank,P8-1,blank,P8-2]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hi there! I'm your medical instructor, here to guide you gently through this lumbar puncture procedure. I'm here to support you every step of the way, answering any questions you have, and making sure you feel confident and comfortable. Remember, there's no such thing as a silly question—I'm always here to help!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey! I'm the person who's got your back while you learn this lumbar puncture procedure. Think of me as your friendly guide, ready to help out whenever you need it. I'm here to answer your questions and make sure you feel good about what you're doing. So, don't hesitate to ask anything that pops into your mind!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey! I'm your guide here to help you with the lumbar puncture procedure. I'm here to answer your questions and support you as you learn. Feel free to ask anything you're curious about, and let's make this learning experience smooth and enjoyable!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there! I'm your medical instructor, here to help you learn and feel comfortable with the lumbar puncture procedure. I'm here anytime you need support or have questions, so feel free to ask me anything!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "I have already stucked for 5 minutes, ask me some questions to make sure that I am on the right track"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there! It sounds like you might need a little nudge in the right direction. Let's see if we can figure out where you are. Have you managed to identify the anatomical landmarks yet? That's where we use our thumbs to find and mark the midline between the iliac crests. If you've done that, the next step would be preparing the area with iodine. Can you tell me where you are in the process? I'm here to help you through it!",
-                "animation_clip": "[P2-0,blank,P2-1]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "I have already stucked for 5 minutes, ask me some questions to make sure that I am on the right track"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there! It sounds like you're feeling a bit stuck, and that's completely okay. Let's go through a couple of quick checks to help you find your footing. Have you identified the anatomical landmarks yet? That's when you use your thumbs to find and mark the midline between the iliac crests. If you've already done that, the next step is to prepare the area with iodine. Can you share where you are in the process right now? I'm here to help you through it!",
-                "animation_clip": "[P2-0,blank,P2-1]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "I have already stucked for 5 minutes, ask me some questions to make sure that I am on the right track"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey, it's totally fine to feel a bit stuck. Let's take a quick look at where you might be. Have you been able to identify the anatomical landmarks yet? Remember, that's where you use your thumbs to locate and mark the midline between the iliac crests. If you've done that, your next step is to prepare the area with iodine. Can you tell me what step you're on right now? Let's get you moving forward!",
-                "animation_clip": "[P2-0,blank,P2-1]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey! I'm your medical instructor here to walk you through this lumbar puncture procedure. I'm right here with you, ready to answer your questions and cheer you on. Feel free to ask anything; we're in this together!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "What you've ate just hit a boom"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there! It sounds like you might be feeling a bit stuck, and that's okay. When you say you've hit a 'boom,' it reminds me of the step where you might have encountered bone. This is normal during the procedure, so don't worry. Here's what you can do: gently pull the needle back a little, and then try to adjust its angle slightly towards the belly button. This can take a few tries, so be patient with yourself. You're doing great!\n\nTo help you visualize this step and get more comfortable, you can watch the following clips.",
-                "animation_clip": "[P8-0,blank,P8-1,blank,P8-2]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "What if I hit a bone"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hitting a bone during this procedure is quite common and nothing to worry about. Just try withdrawing the needle slightly and then redirect it gently. Make sure you're aiming towards the patient's belly button. It's all part of the learning process, and you're doing really well. Keep going, and remember, practice makes perfect!\n\nTo help you get a better understanding of this step, you can check out these clips from the procedure.",
-                "animation_clip": "[P8-0,blank,P8-1,blank,P8-2]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "I have already stucked for 5 minutes, ask me some questions to make sure that I am on the right trackNow I'm stuck herestep 2"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there! It seems like you're having a bit of a tough time, and that's totally okay. Let's see if we can get you moving forward. Have you managed to find the right spot by feeling for the iliac crests and marking the midline yet? It's all about feeling for those bumps and making sure you've got the right area marked. Once you're confident with that, the next move is to clean the area with iodine. Where are you stuck exactly? Let me know, and we'll get you back on track together!",
-                "animation_clip": "[P2-0,blank,P2-1]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "I have already stucked for 5 minutes, ask me some questions to make sure that I am on the right trackNow I'm stuck herestep 2"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there, I see you're feeling a bit stuck. Let's try to get you back on track. Have you managed to feel for the iliac crests and draw that imaginary line yet? It's important to find the midline and mark it accurately. Once you've got that, you're ready to move on to the next step. Can you tell me exactly where you're having trouble? Let's work through it together and get you moving forward!",
-                "animation_clip": "[P2-0,blank,P2-1]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "I have already stucked for 5 minutes, ask me some questions to make sure that I am on the right trackNow I'm stuck herestep 2"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey, I get it, sometimes these steps can be a bit tricky. Let's see how we can get you moving again. Have you tried feeling for the iliac crests yet? It's crucial to get that imaginary line right across the L4 spinous process. Make sure you're using your thumbs to find and mark the midline with a skin marker. Once you've got that down, you're ready to move on. Let me know if there's a specific part you're unsure about, and we'll tackle it together!",
-                "animation_clip": "[P2-0,blank,P2-1]"
-            }
-        },
-        {
-            "role": "user",
             "content": "I have already stucked for 5 minutes, ask me some questions to make sure that I am on the right trackNow I'm stuck at step 2"
         },
         {
             "role": "AI",
             "content": {
-                "Question_answer": "Hey there, no worries about feeling stuck! Let's go over step 2 together. Have you located the iliac crests yet? You should be using your thumbs to feel along the lower back and find that spot. Once you have the crests, try to draw an imaginary line between them to find the L4 spinous process. After that, you want to mark the midline on the skin. Let me know if there's anything specific that's tripping you up, and we'll get you through it!",
+                "Question_answer": "Absolutely, let's make sure you're on the right track. In step 2, you're focusing on identifying the anatomical landmarks. Can you describe how you're locating the iliac crests and ensuring you're marking the correct interspace? Remember, your goal is to find that imaginary line between the iliac crests and locate the L4 spinous process. Once you've done that, you should be able to feel the midline and mark it. How's it going with that part? Let me know if you need a bit more guidance!",
                 "animation_clip": "[P2-0,blank,P2-1]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hello! I'm your medical instructor here to guide and support you through your lumbar puncture training. Think of me as your personal coach, helping you step by step, answering your questions, and making sure you feel comfortable and confident with the procedure. If you have any concerns or need clarification, just let me know—I'm here for you!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey there! I'm your guide through this lumbar puncture training. Think of me as your helpful assistant, ready to answer questions and offer tips whenever you need. I'm here to make sure you feel good about the steps and understand everything clearly. Anytime you're unsure or curious, just ask!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey! I'm here to help you out with your lumbar puncture training. Think of me like a friendly assistant who's got your back while you learn. I'll help answer questions and guide you through the steps. If you're ever unsure or need a hand, just let me know!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey there! I'm here to help you out with your lumbar puncture training. Just think of me as your go-to person for any questions or guidance you might need. If you're feeling stuck or curious about something, just give me a shout, and I'll do my best to assist you!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hi there! I'm just here to help you with the lumbar puncture training. You can think of me as a support system for any questions or guidance you might need. If something's puzzling or you need a bit of help, just let me know!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey, I'm here to help you out with your lumbar puncture training. Just think of me like a friendly guide who's ready to answer your questions and help you through the process. If you ever need advice or assistance, just ask!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey! I'm just here to help you with the lumbar puncture training. Think of me as your go-to person for any questions or guidance you might need. If you're stuck or curious about something, just let me know and I'll do my best to assist you!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey there! I'm just here to help you with your lumbar puncture training. Think of me like someone you can turn to whenever you're unsure about a step or if you have any questions. I'm here to support you while you learn, so feel free to ask anything!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey! I'm here to help you out with your lumbar puncture training. Just think of me as someone who's here to guide you through the process and answer any questions you might have. If you're unsure about anything, just let me know and I'll help you figure it out!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hi! I'm here to help you out with your lumbar puncture training. You can think of me as a friendly guide who's here to answer your questions and help you understand the procedure. If you're ever unsure or need some advice, just let me know!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey! I'm here to help you with your lumbar puncture training. Think of me like a friendly helper who's ready to answer your questions and guide you through the procedure. If you're ever unsure about a step or have any questions, just ask, and I'll do my best to help you out!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey there! I'm here to help you with your lumbar puncture training. Think of me as someone who's here to answer your questions and help you through the process. I'm here to support you, so if you need any help or have questions, just let me know!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hi! I'm here to help you with your lumbar puncture training. You can think of me as someone who's here to answer your questions and guide you through the steps. If you're ever unsure about something or need some guidance, just let me know, and I'll be happy to help!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey! I'm here to help you with your lumbar puncture training. I'm like the person who answers your questions and helps you understand the steps. If you're feeling unsure or need some advice, just let me know, and I'll be happy to assist you!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hey there! I'm just here to help you out with your lumbar puncture training. If you have any questions or if there's something you're unsure about, just let me know, and I'll do my best to help you out. Let's make this a smooth learning experience for you!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hi! I'm just here to help you with your lumbar puncture training. If you have any questions or if there's something you need to know, feel free to ask, and I'll do my best to assist you. Let's make this learning experience as smooth and enjoyable as possible!",
+                "animation_clip": "[]"
+            }
+        },
+        {
+            "role": "user",
+            "content": "Who you are?"
+        },
+        {
+            "role": "AI",
+            "content": {
+                "Question_answer": "Hi! I'm here to help you with your lumbar puncture training. If you have any questions or need some advice, just ask and I'll do my best to help you out!",
+                "animation_clip": "[]"
             }
         }
     ]

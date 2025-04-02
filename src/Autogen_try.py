@@ -1,5 +1,6 @@
 import boto3
 from  openai import OpenAI
+from pathlib import Path
 # from autogen import Agent
 import json
 import os
@@ -76,12 +77,15 @@ class background():
 
     #Get GPT answer with sound
     def get_sound(self, text):
+        speech_file_path = Path(__file__).parent / "output.mp3"
         response = self.client.audio.speech.create(
             model="tts-1",
             voice="alloy",
+            speed=1.3,
             input=text,
+            # instructions="Speak in a cheerful, professional and positive tone.",
         )
-        response.stream_to_file("output.mp3")
+        response.stream_to_file(speech_file_path)
         return
 
     #Get sentence embedding

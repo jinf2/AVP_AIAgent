@@ -47,7 +47,7 @@ def search():
             "animation_clip":[],
             "audio_url": "NA"
         })
-        if "step" not in data.keys():
+        if data["step"] == "-1":
             question = data['words']
             answer = new.do_conv_RAG(question)
         else:
