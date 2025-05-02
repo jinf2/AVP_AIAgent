@@ -61,7 +61,7 @@ Upload Successful :)
 #### GET GPT RESULT
 
 ```http
-  POST http://3.147.114.98:5000/search
+  POST http://3.147.114.98:5000/searchstep
 ```
 
 | Parameter | Type     | Description                |
@@ -77,16 +77,45 @@ Input_example:
 ```
 {
     "words":"Hello",
-    "step":"-1" 
+    "step":"1" 
 }
-// step == "-1" means the question is asked by students
+// step == "1" means the student at first step
 // otherwise means the question is asked by frontend
 ```
 Output_example:
 ```
 {
     "answer": 'Answer to the student question',
-    "animation_clip":[P6, P6-1],
+    "animation_clip":["P6", "P6-1"],
+    "audio_url": "audio/output.mp3"
+}
+```
+
+```http
+  POST http://3.147.114.98:5000/search
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `openai/api_key` | `string` | **Required**. Your API key |
+| `pinecone/api_key` | `string` | **Required**. Your API key |
+
+| Input_type | Output_type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `json` | `json` | |
+
+Input_example:
+```
+{
+    "words":"Hello"
+}
+// "words":question asked by student
+```
+Output_example:
+```
+{
+    "answer": 'Answer to the student question',
+    "animation_clip":["P6", "P6-1"],
     "audio_url": "audio/output.mp3"
 }
 ```
@@ -108,19 +137,21 @@ AVP/
   AVP_AIAgent/
     - requirements.txt
     - README.md
+    - test file/           
     - src/
       -- flask_setup.py
-      -- Autogen_try.py
+      -- Agent_RAG.py 
       -- avp_db.py
       -- talk_record.json
       -- output.mp3
       -- LPVT_RAG_Basic_Knowledge.txt
-      -- medical_info.json
       -- talk_record.json
       -- medical_embed.json
       -- current_data.json
       -- _pycache_/
   venv/
+  layer/
+  lambda_layer.zip
 ```
 
 ## Lambda(no server way)

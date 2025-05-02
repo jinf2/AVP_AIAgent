@@ -1,4 +1,5 @@
 from flask import Flask,jsonify,request,send_from_directory
+from mutagen.mp3 import MP3
 import json
 import awsgi
 
@@ -36,10 +37,10 @@ def upload_data():
 
 @app.route('/search', methods=['POST'])
 def search():
-    import Autogen_try
+    import Agent_RAG
     if request.method == 'POST':
         data=request.get_json(force=True) 
-        new = Autogen_try.background()
+        new = Agent_RAG.background()
         question = data['words']
         if data['words'] == "":
             return jsonify({
@@ -47,18 +48,43 @@ def search():
             "animation_clip":[],
             "audio_url": "NA"
         })
-        if data["step"] == "-1":
-            question = data['words']
-            answer = new.do_conv_RAG(question)
-        else:
-            question = data['words'] + "Now I'm stuck at " + data["step"]
+        answer = new.do_conv_RAG(question)
+        print("question:" + question)
+        print("answer:" + answer['Question_answer'])
+        audio = MP3("/home/ec2-user/AVP/AVP_AIAgent/src/output.mp3")
+        audio_length = audio.info.length
+        return jsonify({
+            "answer": answer['Question_answer'],
+            "animation_clip": answer['animation_clip'],
+            "audio_url": "audio/output.mp3",
+            "audio_length":audio_length
+        })
+
+@app.route('/searchstep', methods=['POST'])
+def searchstep():
+    import Agent_RAG
+    if request.method == 'POST':
+        data=request.get_json(force=True) 
+        new = Agent_RAG.background()
+        question = data['words']
+        if question == "":
+            return jsonify({
+            "answer": "No problem identified",
+            "animation_clip":[],
+            "audio_url": "NA"
+        })
+        if data["step"]:
+            question = question + "Now I'm stuck at " + data["step"]
             answer = new.do_conv_RAG(question)
         print("question:" + question)
         print("answer:" + answer['Question_answer'])
+        audio = MP3("/home/ec2-user/AVP/AVP_AIAgent/src/output.mp3")
+        audio_length = audio.info.length
         return jsonify({
             "answer": answer['Question_answer'],
             "animation_clip":answer['animation_clip'],
-            "audio_url": "audio/output.mp3"
+            "audio_url": "audio/output.mp3",
+            "audio_length":audio_length
         })
 
 # @app.route('/audio', methods=['POST'])

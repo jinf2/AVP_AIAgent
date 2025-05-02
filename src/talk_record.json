@@ -117,96 +117,73 @@
         {
             "role": "AI",
             "content": {
-                "Question_answer": "Hey! I'm here to help you out with your lumbar puncture training. Just think of me as someone who's here to guide you through the process and answer any questions you might have. If you're unsure about anything, just let me know and I'll help you figure it out!",
-                "animation_clip": "[]"
+                "Question_answer": "I'm here to assist you with your lumbar puncture training. Think of me as your supportive instructor, ready to provide guidance, answer any questions you might have, and help ensure you feel confident as you go through the procedure. If you need help or clarification at any point, just let me know, and I'll be here to support you!",
+                "animation_clip": []
             }
         },
         {
             "role": "user",
-            "content": "Who you are?"
+            "content": "What I need to do for the fisrt start step"
         },
         {
             "role": "AI",
             "content": {
-                "Question_answer": "Hi! I'm here to help you out with your lumbar puncture training. You can think of me as a friendly guide who's here to answer your questions and help you understand the procedure. If you're ever unsure or need some advice, just let me know!",
-                "animation_clip": "[]"
+                "Question_answer": "For the first step, you'll want to start by orienting yourself with the lumbar puncture simulator. You'll see an arrow indicating where the simulator is located. This step is all about getting familiar with the equipment and setting yourself up for success. Make sure you're comfortable with the position of the simulator before you move on to the next steps.",
+                "animation_clip": [
+                    "P1-0"
+                ]
             }
         },
         {
             "role": "user",
-            "content": "Who you are?"
+            "content": "What I need to do for the fisrt start stepNow I'm stuck at 1"
         },
         {
             "role": "AI",
             "content": {
-                "Question_answer": "Hey! I'm here to help you with your lumbar puncture training. Think of me like a friendly helper who's ready to answer your questions and guide you through the procedure. If you're ever unsure about a step or have any questions, just ask, and I'll do my best to help you out!",
-                "animation_clip": "[]"
+                "Question_answer": "To get started with the first step, focus on orienting yourself with the lumbar puncture simulator. You'll see an arrow indicating where the simulator is located, which helps you understand where you'll be working. This initial step is all about familiarizing yourself with the equipment and setting a solid foundation for the next steps. Make sure you're comfortable with the simulator's position before proceeding.",
+                "animation_clip": [
+                    "P1-0"
+                ]
             }
         },
         {
             "role": "user",
-            "content": "Who you are?"
+            "content": "What I need to do for the fisrt start step"
         },
         {
             "role": "AI",
             "content": {
-                "Question_answer": "Hey there! I'm here to help you with your lumbar puncture training. Think of me as someone who's here to answer your questions and help you through the process. I'm here to support you, so if you need any help or have questions, just let me know!",
-                "animation_clip": "[]"
+                "Question_answer": "To get started with the first step, focus on orienting yourself with the lumbar puncture simulator. You'll see an arrow indicating where the simulator is located, which helps you understand where you'll be working. This initial step is all about familiarizing yourself with the equipment and setting a solid foundation for the next steps. Make sure you're comfortable with the simulator's position before proceeding.",
+                "animation_clip": [
+                    "P1-0"
+                ]
             }
         },
         {
             "role": "user",
-            "content": "Who you are?"
+            "content": "What I need to do for the fisrt start step"
         },
         {
             "role": "AI",
             "content": {
-                "Question_answer": "Hi! I'm here to help you with your lumbar puncture training. You can think of me as someone who's here to answer your questions and guide you through the steps. If you're ever unsure about something or need some guidance, just let me know, and I'll be happy to help!",
-                "animation_clip": "[]"
+                "Question_answer": "To get started with the first step, you'll want to focus on orienting yourself with the lumbar puncture simulator. You'll see an arrow indicating where the simulator is located. This step is all about getting familiar with the equipment and setting yourself up for success. Make sure you're comfortable with the position of the simulator before you move on to the next steps.",
+                "animation_clip": [
+                    "P1-0"
+                ]
             }
         },
         {
             "role": "user",
-            "content": "Who you are?"
+            "content": "What I need to do for the fisrt start step"
         },
         {
             "role": "AI",
             "content": {
-                "Question_answer": "Hey! I'm here to help you with your lumbar puncture training. I'm like the person who answers your questions and helps you understand the steps. If you're feeling unsure or need some advice, just let me know, and I'll be happy to assist you!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hey there! I'm just here to help you out with your lumbar puncture training. If you have any questions or if there's something you're unsure about, just let me know, and I'll do my best to help you out. Let's make this a smooth learning experience for you!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hi! I'm just here to help you with your lumbar puncture training. If you have any questions or if there's something you need to know, feel free to ask, and I'll do my best to assist you. Let's make this learning experience as smooth and enjoyable as possible!",
-                "animation_clip": "[]"
-            }
-        },
-        {
-            "role": "user",
-            "content": "Who you are?"
-        },
-        {
-            "role": "AI",
-            "content": {
-                "Question_answer": "Hi! I'm here to help you with your lumbar puncture training. If you have any questions or need some advice, just ask and I'll do my best to help you out!",
-                "animation_clip": "[]"
+                "Question_answer": "To get started with the first step, focus on orienting yourself with the lumbar puncture simulator. You'll see an arrow indicating where the simulator is located, which helps you understand where you'll be working. This initial step is all about familiarizing yourself with the equipment and setting a solid foundation for the next steps. Make sure you're comfortable with the simulator's position before proceeding.",
+                "animation_clip": [
+                    "P1-0"
+                ]
             }
         }
     ]

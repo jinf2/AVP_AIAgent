@@ -16,13 +16,11 @@ ssm = boto3.client('ssm',region_name='us-east-2')
 parameter_openai = ssm.get_parameter(Name='/openai/api_key', WithDecryption=True)
 parameter_pinecone = ssm.get_parameter(Name='/pinecone/api_key', WithDecryption=True)
 
-
 class background():
     def __init__(self):
-        with open('medical_info.json', 'r', encoding='utf-8') as json_file:
-            med_data = json.load(json_file)
+        with open('LPVT_RAG_Basic_Knowledge.txt', 'r', encoding='utf-8') as txt_file:
+            med_data = txt_file.read()
         self.medical_info = med_data
-        # self.medical_info = json.dumps(med_data)
 
         if os.path.exists('talk_record.json') and os.path.getsize('talk_record.json') > 0:
             with open('talk_record.json', 'r', encoding='utf-8') as json_file:
@@ -59,14 +57,40 @@ class background():
             # "gpt-4o"
             model="gpt-4o",
             messages=[
-                {"role": "system", "content": ("You're a medical school instructor, and your students are practicing spinal tap surgery using VR devices. Talk to students in an encouraging and personal way, and use professional knowledge to answer questions."
-                "Please use the talk_record which stores the previous conversations and medical_info which may related to user question to help answer the user's question. 'LPVT_data' contains the complete operation steps of the lumbar puncture procedure. 'Clip Name' refers to the name of the step clip, for example, P6 represents the sixth major step, and P6-1 represents the second sub-step within the sixth major step (sub-steps are numbered starting from 0, and currently, there is no seventh major step). 'Step Name' refers to the name of the sub-step. 'Duration (second)' is the playback duration of each sub-step video. 'Visual Component' describes the description of the content displayed to the student in the video demonstration.The student will ask questions related to the procedure steps."
-                "First of all, answer the student's question in a gentle, encouraging, caring tone and in the role of a medical instructor. and guide them on how to proceed to the next step based on the 'Visual Component'. Secondly, you should provide the 'Clip Name' for step and return the string for how to play the video. For example, the question is 'Are there any step related to insert?', the answer acturally about P8-0,P8-1,P8-2. It mast have 'blank' in each step. Then, you should provide like [P8-0,blank,P8-1,blank,P8-2]. At the end, the format of answer which AI assistant provide should be json format:"
-                "{\n"
-                "  'Question_answer': 'Answer to the student question',\n"
-                "  'animation_clip': 'Relevant clip names (e.g., [P6, P6-1])'\n"
-                "}\n"
-                "Ensure that the output is a valid JSON object.")},
+                {
+                    "role": "system", 
+                    "content": (
+                        "You are a medical school instructor guiding students who are practicing spinal tap procedures in VR.\n\n"
+
+                        "Your job is to:\n"
+                        "1. Gently and professionally answer the student's question.\n"
+                        "2. Use data from these sources if available:\n"
+                        "   - talk_record: prior student-instructor conversation\n"
+                        "   - medical_info: related medical knowledge\n"
+                        "   - LPVT_data: step-by-step lumbar puncture procedure\n\n"
+
+                        "For LPVT_data:\n"
+                        "- 'Clip Name' = step ID (e.g., P6 = major step 6, P6-1 = substep 1 of step 6)\n"
+                        "- 'Step Name' = substep description\n"
+                        "- 'Visual Component' = what the student sees in the clip\n"
+                        "- 'Duration (second)' = video length\n\n"
+
+                        "Instructions for response:\n"
+                        "1.Speak in a warm, encouraging, and competent tone like a supportive instructor.\n"
+                        "2.Guide the student on how to proceed, based on 'Visual Component' where applicable.\n"
+                        "3.If the answer relates to procedural clips, include clip names in this format:\n"
+                        "  [P8-0, blank, P8-1, blank, P8-2]\n"
+                        "  (always insert 'blank' between clips)\n"
+                        "4.If no video clip is needed, return an empty list []\n\n"
+
+                        "Return a valid JSON object in **this exact format**:\n"
+                        "{\n"
+                        "  \"Question_answer\": \"Answer to the student question\",\n"
+                        "  \"animation_clip\": ['P6', 'blank', 'P6-1']\n"
+                        "}\n\n"
+
+                        "Important:\n"
+                        "Ensure the JSON syntax uses double quotes, not single quotes.")},
                 {"role": "user", "content": prompt}
             ],
             response_format={"type": "json_object"},
@@ -111,7 +135,6 @@ class background():
             content = file.read()
         paragraphs = content.split('\n\n')  
         paragraphs = [para.strip() for para in paragraphs if para.strip()]
-        # df = pd.read_csv('medical_info.csv')
         existing_data = {"vectors": []}
         i=0
         for line in paragraphs:
@@ -178,7 +201,24 @@ class background():
                 retrieval_text.append(retrieval_result['matches'][i]['metadata']['sentence'])
         # print("retrieval_result is")
         # print(retrieval_text)
-        prompt = f"Please use below information, answer student question in a gentle, encouraging, caring tone and in the role of a medical instructor. In medical_info part, they have these content may related to question from student:{retrieval_text}, talk_record:{self.talk_record},LPVT_data:{self.LPVT_data},student question:{question} Make the answers more colloquial and answer questions in a different way than providing information. Please don't use metaphors"
+
+        # prompt = f"Please use below information, answer student question in a gentle, encouraging, caring tone and in the role of a medical instructor. In medical_info part, they have these content may related to question from student:{retrieval_text}, talk_record:{self.talk_record},LPVT_data:{self.LPVT_data},student question:{question} Make the answers more colloquial and answer questions in a different way than providing information. Please don't use metaphors. Do NOT use any modal or greeting phrases like 'hey', 'hey there', or 'hello' at the beginning of the answer."
+
+        prompt = f"""
+            Please answer the student's question in the role of a medical instructor. Speak in a gentle, encouraging, and caring tone.
+
+            Use the following context:
+            - medical_info: background medical knowledge related to the student's question : {retrieval_text}
+            - talk_record: previous conversation history : {self.talk_record}
+            - LPVT_data: lumbar puncture procedural steps : {self.LPVT_data}
+            - student_question: {question}
+
+            Your answer should be **colloquial and conversational**, but professional. Avoid just restating medical facts—engage with the student naturally as if in a one-on-one setting. Do **not** use metaphors.  
+
+            Also, **do NOT** start the response with any greeting phrases like "hey", "hey there", or "hello". Start directly with your response.
+
+            Respond clearly, and guide the student step by step when appropriate.
+        """
         answer = self.run_GPT_video(prompt)
         # answer = answer.replace("'", '"') 
         # match = re.search(r'\{.*\}', answer)
