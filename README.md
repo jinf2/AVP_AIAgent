@@ -87,7 +87,9 @@ Output_example:
 {
     "answer": 'Answer to the student question',
     "animation_clip":["P6", "P6-1"],
-    "audio_url": "audio/output.mp3"
+    "audio_url": "audio/output.mp3",
+    "audio_length":audio_length
+    
 }
 ```
 
@@ -116,7 +118,8 @@ Output_example:
 {
     "answer": 'Answer to the student question',
     "animation_clip":["P6", "P6-1"],
-    "audio_url": "audio/output.mp3"
+    "audio_url": "audio/output.mp3",
+    "audio_length":audio_length
 }
 ```
 
@@ -139,9 +142,9 @@ AVP/
     - README.md
     - test file/           
     - src/
-      -- flask_setup.py
-      -- Agent_RAG.py 
-      -- avp_db.py
+      -- flask_setup.py (backend server)
+      -- Agent_RAG.py (main code)
+      -- avp_db.py (data code)
       -- talk_record.json
       -- output.mp3
       -- LPVT_RAG_Basic_Knowledge.txt

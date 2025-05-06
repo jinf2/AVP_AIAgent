@@ -15,10 +15,6 @@ def connect(text):
     import API_try
     result = API_try.trylink(text)
     return jsonify(result)
-    # return{
-    #     "msg":"success",
-    #     "data":result
-    # }
 
 @app.route('/upload', methods=['POST'])
 def upload_data():
@@ -31,8 +27,6 @@ def upload_data():
             return "No user_id, Upload Unsuccessful :("
         print("user_id is:"+data["user_id"])
         result = "Upload Successful :)"
-        # new_upload = avp_db.upload_background()
-        # new_upload.Upload(data)
         return result
 
 @app.route('/search', methods=['POST'])
